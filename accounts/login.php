@@ -35,7 +35,7 @@ if (str_word_count($error_message) > 0){
             <br>
             <div id="div_password" class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Password</label>
-                <input type="text" class="form-control" name="password" id="password" placeholder="password"  require>
+                <input type="password" class="form-control" name="password" id="password" placeholder="password"  require>
             </div>
             <br>
             <input class="btn btn-primary" type="submit" value="Login">

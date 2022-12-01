@@ -10,9 +10,13 @@ function update_user_bd($array,$conn){
 
 function insert_user_bd($array,$conn){
     //inserts user
+    
     $val_coins = 0;
+    //encrypt password
+    $password = password_hash($array['password'], PASSWORD_BCRYPT);
+
     $query = "INSERT INTO usuario(nome,email,senha,coins)
-    VALUES ('{$array['username']}','{$array['email']}','{$array['password']}',{$val_coins})";
+    VALUES ('{$array['username']}','{$array['email']}','$password',{$val_coins})";
     $command = $conn->prepare($query);
     $command->execute();
 }

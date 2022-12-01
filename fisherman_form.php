@@ -1,7 +1,27 @@
-<?php
-include_once 'head.php';
-?>
 
+<?php
+include_once 'database/bd.php';
+include_once 'database/bd_funcs.php';
+?>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dagon</title>
+    <link rel="icon" type="image/x-icon" href="img/pageicon.png">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src='js/scoreboard.js'></script>
+    <!-- FONTS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+</head>
 <body>
     <nav id='nav1' class="navbar navbar-expand-lg py-4 shadow">
 		<div class="container-fluid">
@@ -14,7 +34,7 @@ include_once 'head.php';
                         Menu
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                        <li><a class="dropdown-item" href="scoreboard.php">Scoreboard</a></li>
+                        <li><a class="dropdown-item" href="#">Scoreboard</a></li>
                         <li><a class="dropdown-item" href="home.php">Home</a></li>
                     </ul>
                 </li>
@@ -44,24 +64,31 @@ include_once 'head.php';
             </ul>
 		</div>
     </nav>
-    <div>
-        <div style='float: left; margin-left: 50px; margin-top: 40px;'>
-            <a class='fishbtn  fs-1' name='fisherman' id='brand_logo' href="fisherman_form.php">1 <img src="img/fisherman.png" alt="" width='200px' height="200px"></a>
+    <div class='container'>
+        <div id="new_form" class="container" style='padding: 50px;'>
+        <div align='center' class="shadow-sm" style='padding: 10px;background-color: #52796f;border-radius: 12px;'>
+            <a class='fishbtn fs-1' name='fisherman' id='brand_logo' href="fisherman_form.php"><img src="img/fisherman.png" alt="" width='200px' height="200px"></a>
             <br>
-            <a class='fishbtn  fs-1' name='boat' id='brand_logo' href="boat_form.php"># <img src="img/fishing-boat.png" alt="" width='200px' height="200px"></a>
+            <h3>New fisherman:</h3>
+            <br>
+            <form name="new_form needs-validation" action="action_register.php" method="POST">
+                <div id="div_nome" class="mb-3">
+                    <label for="fisherman_name" class="form-label">Fisherman Name</label>
+                    <input type="text" class="form-control" id="fisherman_name" name="fisherman_name" placeholder="fisherman_name"  require>
+                </div>
+                <br>
+                <div id="div_desc" class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Description</label>
+                    <input type="text" class="form-control" name="desc" id="desc" placeholder="desc"  require>
+                </div>
+                <br>
+                <input class="btn btn-primary" type="submit" value="Create New fisherman">
+            </form>
+            </div>
         </div>
-        <div class='' style='float: right; margin-top: 90px; block;z-index: 5;position: relative;'>
-            <a class='fishbtn  fs-1' id='brand_logo' href="#">10 <img src="img/fish1.png" alt="" width='70px' height="70px"></a>
-            <p style='margin-bottom: 40px'></p>
-            <a class='fishbtn fs-1' id='brand_logo' href="#">523 <img src="img/fish2.png" alt="" width='70px' height="70px"></a>
-            <p style='margin-bottom: 40px'></p>
-            <a class='fishbtn fs-1' id='brand_logo' href="#">10 <img src="img/fish3.png" alt="" width='200px' height="100px"></a>
-        </div>
-        <div align='center' style='margin-top: 50px;font-size: 60px;'>
-            <a class='fishbtn' onclick='money_click()' name='money' id='brand_logo' href="#">1 <img src="img/money.png" alt="" width='200px' height="200px"></a>
-        </div>
-        <!--Waves Container-->
-        <div>
+    </div>
+    <!--Waves Container-->
+    <div>
         <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
         <defs>
@@ -74,7 +101,6 @@ include_once 'head.php';
         <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(53, 79, 82,0.5)" />
         </g>
         </svg>
-        </div>
     </div>
     <!--Waves end-->
     <footer class="site-footer">

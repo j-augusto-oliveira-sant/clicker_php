@@ -8,7 +8,6 @@ include_once "../database/bd_funcs.php";
 if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
-
     $result = search_user_bd($username, $conn);
 
     if (is_countable($result) && count($result) > 0) {
@@ -16,7 +15,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         $row = $result;
 
         //compare password and username
-        if ($row['nome'] === $username && $row['senha'] === $password) {
+        if ($row['nome'] === $username && password_verify($password, $row['senha'])) {
 
             echo "Logged in!";
 
