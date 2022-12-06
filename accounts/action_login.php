@@ -27,6 +27,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             
             $_SESSION['coins'] = $row['coins'];
 
+            $_SESSION['usuario_pk'] = $row['usuario_pk'];
+
             header("Location: ../home.php");
 
             exit();
