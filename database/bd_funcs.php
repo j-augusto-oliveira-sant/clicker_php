@@ -10,6 +10,12 @@ function update_user_bd($array,$conn){
     $command->execute();
 }
 
+function update_coins_user($val, $id, $conn){
+    $query = "UPDATE usuario SET coins={$val} WHERE usuario_pk={$id}";
+    $command = $conn->prepare($query);
+    $command->execute();
+}
+
 function insert_user_bd($array,$conn){
     //inserts user
     

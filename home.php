@@ -62,7 +62,7 @@ include_once 'database/bd_funcs.php';
             <a class='fishbtn fs-1' id='brand_logo' href="#">10 <img src="img/fish3.png" alt="" width='200px' height="100px"></a>
         </div>
         <div align='center' style='margin-top: 50px;font-size: 60px;'>
-            <a class='fishbtn' onclick='money_click()' name='money' id='brand_logo' href="#">1 <img src="img/money.png" alt="" width='200px' height="200px"></a>
+            <a class='fishbtn' onclick='money_click()' name='money' id='brand_logo' href="#"><?php $home_coins = search_user_bd($_SESSION['username'],$conn)['coins'];echo "{$home_coins}";?> <img src="img/money.png" alt="" width='200px' height="200px"></a>
         </div>
         <!--Waves Container-->
         <div>
@@ -111,6 +111,7 @@ include_once 'database/bd_funcs.php';
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by
                         <a href="#">SOLURIES</a>.
+                        <?php echo "<p id='user_pk' style='display: none;'>{$_SESSION['usuario_pk']}</p>"?>
                     </p>
                 </div>
             </div>
