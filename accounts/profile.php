@@ -1,3 +1,7 @@
+<?php
+include_once '../database/bd.php';
+include_once '../database/bd_funcs.php';
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -65,9 +69,10 @@
         <div class='jumbotron'>
             <h1 align='center'>PROFILE</h1>
             <?php
+            $home_coins = search_user_bd($_SESSION['username'],$conn)['coins'];
             echo "<h2>Username: {$_SESSION['username']}</h2>";
             echo "<h2 class='text-muted'>Email: {$_SESSION['email']}</h2><br>";
-            echo "<h2 class=''>Points: {$_SESSION['coins']}</h2>";
+            echo "<h2>Game Money: {$home_coins}</h2>";
             ?>
         </div>
     </div>

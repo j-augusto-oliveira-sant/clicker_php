@@ -29,8 +29,6 @@ window.onbeforeunload = function () {
     console.log(id);
     //ajax save
     save_coins(words[0],id);
-
-    return  "Saving..";
 };  
 
 
@@ -39,8 +37,7 @@ function money_click(){
     words = text.split(" ");
     num = parseInt(words[0])+1;
     s_num = num.toString();
-    document.getElementsByName('money')[0].innerHTML = s_num+" "
-    +"<img src='img/money.png' alt='' width='200px' height='200px'></a>";
+    document.getElementsByName('money')[0].innerHTML = s_num
 }
 
 var myfunc = setInterval(function() {
@@ -48,6 +45,5 @@ var myfunc = setInterval(function() {
     words = text.split(" ");
     num = parseInt(words[0])+1;
     s_num = num.toString();
-    document.getElementsByName('money')[0].innerHTML = s_num+" "
-    +"<img src='img/money.png' alt='' width='200px' height='200px'></a>";
+    document.getElementsByName('money')[0].innerHTML = s_num
 }, 2000);

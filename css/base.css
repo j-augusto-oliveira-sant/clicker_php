@@ -1,11 +1,17 @@
 
 body{
-  background-color: #2f3e46;
+  background-color: #827081;
+}
+
+.gamefont{
+  text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+  1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* UTILS */
 .jumbotron {
-    background-color: #52796f;
+    background-color: #E7E6F7;
     padding: 2rem 1rem;
     margin-bottom: 2rem;
     margin-top: 2rem;
@@ -58,7 +64,7 @@ body{
     text-align: justify;
   }
   .display_comment{
-    background-color: #52796f;
+    background-color: #E7E6F7;
   }
   .display_comment:hover{
     filter: brightness(120%);
@@ -81,7 +87,7 @@ body{
   }
   
   .jumbotronborder {
-    background-color: #52796f;
+    background-color: #E7E6F7;
     padding: 2rem 1rem;
     margin-bottom: 2rem;
     margin-top: 2rem;
@@ -161,7 +167,9 @@ body{
   }
   
   #brand_logo{
-    font-family: 'Permanent Marker', cursive;
+    text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+    1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+    font-family: 'PT Sans Caption', sans-serif;
   }
   
   #brand_logo:hover{
@@ -169,7 +177,7 @@ body{
   }
   
   .register_form{
-    background-color: #52796f;
+    background-color: #E7E6F7;
     padding: 2rem 1rem;
     margin-bottom: 2rem;
     border-radius: .3rem;
@@ -181,12 +189,13 @@ body{
   }
   
   
-  
-  #nav1{  
-    background-color:#52796f; /*whichever you want*/
-    opacity: 0.8; 
-    filter:(opacity=50);
-  }
+
+#nav1{  
+  background-color: #331a00;
+  background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+  opacity: 0.8; 
+  filter:(opacity=50);
+}
   
   a {
     color: #000000;
@@ -204,7 +213,7 @@ body{
   }
   
   .content_text{
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: 'PT Sans Caption', sans-serif;
       font-size: medium;
   }
   .url_text{
@@ -273,7 +282,7 @@ body{
   }
   /* ########### */
   #navbar_index{
-    background-color: #52796f;
+    background-color: #E7E6F7;
   }
 
   /* Animation WAVES */
@@ -335,7 +344,7 @@ body{
   
   .site-footer
   {
-    background-color: #52796f;
+    background-color: #E7E6F7;
     padding:45px 0 20px;
     font-size:15px;
     line-height:24px;

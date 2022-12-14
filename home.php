@@ -46,39 +46,41 @@ include_once 'database/bd_funcs.php';
             </ul>
 		</div>
     </nav>
-    <div>
+    <div class=''>
         <div style='float: left; margin-left: 50px; margin-top: 40px;'>
-            <a class='fishbtn  fs-1' name='fisherman' id='brand_logo' href="workers/fisherman_form.php"><?php $fish_val=count(all_fishermans_bd($conn,$_SESSION['usuario_pk']));
+            <a class='fishbtn gamefont  fs-1' name='fisherman' id='brand_logo' href="workers/fisherman_form.php"><?php $fish_val=count(all_fishermans_bd($conn,$_SESSION['usuario_pk']));
             echo "{$fish_val}";?> <img src="img/fisherman.png" alt="" width='200px' height="200px"></a>
             <br>
-            <a class='fishbtn  fs-1' name='boat' id='brand_logo' href="workers/boat_form.php"><?php $boat_val=count(all_boat_bd($conn,$_SESSION['usuario_pk']));
+            <a class='fishbtn gamefont  fs-1' name='boat' id='brand_logo' href="workers/boat_form.php"><?php $boat_val=count(all_boat_bd($conn,$_SESSION['usuario_pk']));
             echo "{$boat_val}";?> <img src="img/fishing-boat.png" alt="" width='200px' height="200px"></a>
         </div>
         <div class='' style='float: right; margin-top: 90px; block;z-index: 5;position: relative;'>
-            <a class='fishbtn  fs-1' id='brand_logo' href="#">10 <img src="img/fish1.png" alt="" width='70px' height="70px"></a>
+            <a class='fishbtn gamefont fs-1' id='brand_logo' href="#">10 <img src="img/fish1.png" alt="" width='70px' height="70px"></a>
             <p style='margin-bottom: 40px'></p>
-            <a class='fishbtn fs-1' id='brand_logo' href="#">523 <img src="img/fish2.png" alt="" width='70px' height="70px"></a>
+            <a class='fishbtn gamefont fs-1' id='brand_logo' href="#">523 <img src="img/fish2.png" alt="" width='70px' height="70px"></a>
             <p style='margin-bottom: 40px'></p>
-            <a class='fishbtn fs-1' id='brand_logo' href="#">10 <img src="img/fish3.png" alt="" width='200px' height="100px"></a>
+            <a class='fishbtn gamefont fs-1' id='brand_logo' href="#">10 <img src="img/fish3.png" alt="" width='200px' height="100px"></a>
         </div>
         <div align='center' style='margin-top: 50px;font-size: 60px;'>
-            <a class='fishbtn' onclick='money_click()' name='money' id='brand_logo' href="#"><?php $home_coins = search_user_bd($_SESSION['username'],$conn)['coins'];echo "{$home_coins}";?> <img src="img/money.png" alt="" width='200px' height="200px"></a>
+            <h1 class="gamefont" name='money'><?php $home_coins = search_user_bd($_SESSION['username'],$conn)['coins'];echo "{$home_coins}";?></h1>
+            <a class='fishbtn' onclick='money_click()' id='brand_logo' href="#"><img src="img/money.png" alt="" width='200px' height="200px"></a>
         </div>
-        <!--Waves Container-->
-        <div>
-        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-        <defs>
-        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-        </defs>
-        <g class="parallax">
-        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(198, 210, 237,0.5)" />
-        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(198, 210, 237,0.3)" />
-        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(198, 210, 237,0.1)" />
-        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(198, 210, 237,0.5)" />
-        </g>
-        </svg>
-        </div>
+    </div>
+
+    <!--Waves Container-->
+    <div>
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+    </defs>
+    <g class="parallax">
+    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(198, 210, 237,0.5)" />
+    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(198, 210, 237,0.3)" />
+    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(198, 210, 237,0.1)" />
+    <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(198, 210, 237,0.5)" />
+    </g>
+    </svg>
     </div>
     <!--Waves end-->
     <footer class="site-footer">

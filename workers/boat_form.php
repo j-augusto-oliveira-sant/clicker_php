@@ -79,7 +79,7 @@ include_once '../database/bd_funcs.php';
             ?>
         </div>
         <div id="new_form" class="container" style='padding: 50px;'>
-        <div align='center' class="shadow-sm" style='padding: 10px;background-color: #52796f;border-radius: 12px;'>
+        <div align='center' class="shadow-sm jumbotron">
             <a class='fishbtn fs-1' name='boat' id='brand_logo' href="boat_form.php"><img src="../img/fishing-boat.png" alt="" width='200px' height="200px"></a>
             <br>
             <h3>New Boat:</h3>
@@ -108,10 +108,10 @@ include_once '../database/bd_funcs.php';
         <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
         </defs>
         <g class="parallax">
-        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(53, 79, 82,0.5)" />
-        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(53, 79, 82,0.3)" />
-        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(53, 79, 82,0.1)" />
-        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(53, 79, 82,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(198, 210, 237,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(198, 210, 237,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(198, 210, 237,0.1)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(198, 210, 237,0.5)" />
         </g>
         </svg>
     </div>
