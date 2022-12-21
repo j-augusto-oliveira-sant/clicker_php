@@ -2,6 +2,11 @@
 <?php
 include_once '../database/bd.php';
 include_once '../database/bd_funcs.php';
+
+$id = isset($_GET['id'])?$_GET['id']:'';
+if ($id){
+    $fisherman = search_fisherman_bd($id, $conn);
+}
 ?>
 <head>
     <meta charset="UTF-8">
@@ -65,19 +70,6 @@ include_once '../database/bd_funcs.php';
 		</div>
     </nav>
     <div class='container'>
-        <div class='jumbotron'>
-            <?php 
-            $fishermans = all_fishermans_bd($conn,$_SESSION['usuario_pk']);
-            foreach($fishermans as $fisherman){
-                echo "<img src='../img/fisherman.png' alt='' width='80px' height='80px'>";
-                echo "<div class='comment_type'><p class='fw-bolder'>{$fisherman['nome']}</p><br>"
-                ."<p>{$fisherman['descricao']}</p>"
-                ."<a style='' href='./action_fisherman.php?action=delete&name={$fisherman['nome']}' class='btn btn-danger'>Vender</a>"
-                ." <a href='./action_fisherman.php?action=update&name={$fisherman['nome']}' class='btn btn-info'>Editar</a></p>"
-                ."</div>";
-            }
-            ?>
-        </div>
         <div id="new_form" class="container" style='padding: 50px;'>
         <div align='center' class="shadow-sm jumbotron">
             <a class='fishbtn fs-1' name='fisherman' id='brand_logo' href="fisherman_form.php"><img src="../img/fisherman.png" alt="" width='200px' height="200px"></a>
@@ -85,50 +77,35 @@ include_once '../database/bd_funcs.php';
             <h3>New fisherman:</h3>
             <br>
             <form name="new_form needs-validation" action="action_fisherman.php" method="POST">
+                <input type="text" class="form-control" id="id" name="id"  readonly value=<?=isset($_GET['id'])?$_GET['id']:''?>>
+                <br>
                 <div id="div_nome" class="mb-3">
                     <label for="fisherman_name" class="form-label">fisherman Name</label>
-                    <input type="text" class="form-control" id="fisherman_name" name="fisherman_name" placeholder="fisherman_name"  require>
+                    <input type="text" class="form-control" id="fisherman_name" name="fisherman_name" value=<?=isset($fisherman['nome'])?$fisherman['nome']:''?> >
                 </div>
                 <br>
                 <div id="div_desc" class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Description</label>
-                    <input type="text" class="form-control" name="desc" id="desc" placeholder="desc"  require>
+                    <input type="text" class="form-control" name="desc" id="desc" value=<?=isset($fisherman['descricao'])?$fisherman['descricao']:''?> >
                 </div>
                 <br>
-                <input class="btn btn-primary" type="submit" value="Create New fisherman">
+                <input class="btn btn-primary" type="submit" value="Save">
             </form>
             </div>
         </div>
     </div>
-    <!--Waves Container-->
-    <div>
-        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-        <defs>
-        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-        </defs>
-        <g class="parallax">
-        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(198, 210, 237,0.5)" />
-        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(198, 210, 237,0.3)" />
-        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(198, 210, 237,0.1)" />
-        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(198, 210, 237,0.5)" />
-        </g>
-        </svg>
-    </div>
-    <!--Waves end-->
     <footer class="site-footer">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <h6>About</h6>
-                    <p class="text-justify">This is a website for a journaling REST API, created for learning purposes,
-                        website and api made with: Python 3,Django,Django Rest Framework</p>
+                    <p class="text-justify">Welcome to Cult of Dagon, the ultimate fish-themed idle game!</p>
                 </div>
 
                 <div class="col-xs-6 col-md-3">
                     <h6>Categories</h6>
                     <ul class="footer-links">
-                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="#">Home</a></li>
                     </ul>
                 </div>
 
@@ -145,7 +122,7 @@ include_once '../database/bd_funcs.php';
             <div class="row">
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by
-                        <a href="#">SOLURIES</a>.
+                        <a href="#">Dagon</a>.
                     </p>
                 </div>
             </div>

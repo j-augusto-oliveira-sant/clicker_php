@@ -52,7 +52,7 @@ function all_users_bd($conn){
 //FISHERMAN --------
 function update_fisherman_bd($array,$conn){
     //updates fisherman
-    $query = "UPDATE fisherman SET nome='{$array['fisherman_name']}',descricao='{$array['desc']}'";
+    $query = "UPDATE fisherman SET nome='{$array['fisherman_name']}',descricao='{$array['desc']}' WHERE fisherman_pk={$array['fisherman_pk']}";
     $command = $conn->prepare($query);
     $command->execute();
 }
@@ -65,14 +65,14 @@ function insert_fisherman_bd($array,$conn){
     $command->execute();
 }
 
-function delete_fisherman_bd($conn, $fisherman_name){
-    $query = "DELETE FROM fisherman WHERE nome='{$fisherman_name}'";
+function delete_fisherman_bd($conn, $fisherman_id){
+    $query = "DELETE FROM fisherman WHERE fisherman_pk={$fisherman_id}";
     $command = $conn->prepare($query);
     $command->execute();
 }
 
-function search_fisherman_bd($username,$conn){
-    $query = "SELECT * FROM fisherman WHERE nome='{$username}'";
+function search_fisherman_bd($fisherman_id,$conn){
+    $query = "SELECT * FROM fisherman WHERE fisherman_pk={$fisherman_id}";
     $command = $conn->prepare($query);
     $command->execute();
     $dados = $command->fetch();
@@ -94,7 +94,7 @@ function all_fishermans_bd($conn, $usuario_pk){
 //BOAT --------
 function update_boat_bd($array,$conn){
     //updates boat
-    $query = "UPDATE boat SET nome='{$array['boat_name']}',descricao='{$array['desc']}'";
+    $query = "UPDATE boat SET nome='{$array['boat_name']}',descricao='{$array['desc']}' WHERE boat_pk={$array['boat_pk']}";
     $command = $conn->prepare($query);
     $command->execute();
 }
@@ -107,14 +107,14 @@ function insert_boat_bd($array,$conn){
     $command->execute();
 }
 
-function delete_boat_bd($conn, $boat_name){
-    $query = "DELETE FROM boat WHERE nome='{$boat_name}'";
+function delete_boat_bd($conn, $boat_pk){
+    $query = "DELETE FROM boat WHERE boat_pk={$boat_pk}";
     $command = $conn->prepare($query);
     $command->execute();
 }
 
-function search_boat_bd($username,$conn){
-    $query = "SELECT * FROM boat WHERE nome='{$username}'";
+function search_boat_bd($boat_pk,$conn){
+    $query = "SELECT * FROM boat WHERE boat_pk={$boat_pk}";
     $command = $conn->prepare($query);
     $command->execute();
     $dados = $command->fetch();

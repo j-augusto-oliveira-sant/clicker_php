@@ -2,11 +2,6 @@
 <?php
 include_once '../database/bd.php';
 include_once '../database/bd_funcs.php';
-
-$id = isset($_GET['id'])?$_GET['id']:'';
-if ($id){
-    $boat = search_boat_bd($id, $conn);
-}
 ?>
 <head>
     <meta charset="UTF-8">
@@ -70,28 +65,20 @@ if ($id){
 		</div>
     </nav>
     <div class='container'>
-        <div id="new_form" class="container" style='padding: 50px;'>
-        <div align='center' class="shadow-sm jumbotron">
-            <a class='fishbtn fs-1' name='boat' id='brand_logo' href="boat_form.php"><img src="../img/fishing-boat.png" alt="" width='200px' height="200px"></a>
-            <br>
-            <h3>New Boat:</h3>
-            <br>
-            <form name="new_form needs-validation" action="action_boat.php" method="POST">
-                <input type="text" class="form-control" id="id" name="id" readonly value=<?=isset($_GET['id'])?$_GET['id']:''?>>
-                <br>
-                <div id="div_nome" class="mb-3">
-                    <label for="boat_name" class="form-label">Boat Name</label>
-                    <input type="text" class="form-control" id="boat_name" name="boat_name" value=<?=isset($boat['nome'])?$boat['nome']:''?>>
-                </div>
-                <br>
-                <div id="div_desc" class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Description</label>
-                    <input type="text" class="form-control" name="desc" id="desc" value=<?=isset($boat['descricao'])?$boat['descricao']:''?>>
-                </div>
-                <br>
-                <input class="btn btn-primary" type="submit" value="Save">
-            </form>
-            </div>
+        <div class='jumbotron'>
+            <a class="btn btn-info" href='boat_form.php'>CREATE BOAT</a>
+            <p></p>
+            <?php 
+            $boats = all_boat_bd($conn,$_SESSION['usuario_pk']);
+            foreach($boats as $boat){
+                echo "<img src='../img/fishing-boat.png' alt='' width='80px' height='80px'>";
+                echo "<div class='comment_type'><p class='fw-bolder'>{$boat['nome']}</p><br>"
+                ."<p>{$boat['descricao']}</p>"
+                ."<a style='' href='./action_boat.php?action=delete&id={$boat['boat_pk']}' class='btn btn-danger'>Vender</a>"
+                ." <a href='./action_boat.php?action=update&id={$boat['boat_pk']}' class='btn btn-info'>Editar</a></p>"
+                ."</div>";
+            }
+            ?>
         </div>
     </div>
     <footer class="site-footer">
@@ -99,13 +86,14 @@ if ($id){
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <h6>About</h6>
-                    <p class="text-justify">Welcome to Cult of Dagon, the ultimate fish-themed idle game!</p>
+                    <p class="text-justify">This is a website for a journaling REST API, created for learning purposes,
+                        website and api made with: Python 3,Django,Django Rest Framework</p>
                 </div>
 
                 <div class="col-xs-6 col-md-3">
                     <h6>Categories</h6>
                     <ul class="footer-links">
-                        <li><a href="#">Home</a></li>
+                        <li><a href="{% url 'index' %}">Home</a></li>
                     </ul>
                 </div>
 
@@ -122,7 +110,7 @@ if ($id){
             <div class="row">
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by
-                        <a href="#">Dagon</a>.
+                        <a href="#">SOLURIES</a>.
                     </p>
                 </div>
             </div>

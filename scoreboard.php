@@ -111,35 +111,18 @@ include_once 'database/bd_funcs.php';
             </table>
         </div>
     </div>
-    <!--Waves Container-->
-    <div>
-        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-        <defs>
-        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-        </defs>
-        <g class="parallax">
-        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(198, 210, 237,0.5)" />
-        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(198, 210, 237,0.3)" />
-        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(198, 210, 237,0.1)" />
-        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(198, 210, 237,0.5)" />
-        </g>
-        </svg>
-    </div>
-    <!--Waves end-->
     <footer class="site-footer">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <h6>About</h6>
-                    <p class="text-justify">This is a website for a journaling REST API, created for learning purposes,
-                        website and api made with: Python 3,Django,Django Rest Framework</p>
+                    <p class="text-justify">Welcome to Cult of Dagon, the ultimate fish-themed idle game!</p>
                 </div>
 
                 <div class="col-xs-6 col-md-3">
                     <h6>Categories</h6>
                     <ul class="footer-links">
-                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="#">Home</a></li>
                     </ul>
                 </div>
 
@@ -156,7 +139,7 @@ include_once 'database/bd_funcs.php';
             <div class="row">
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by
-                        <a href="#">SOLURIES</a>.
+                        <a href="#">Dagon</a>.
                     </p>
                 </div>
             </div>

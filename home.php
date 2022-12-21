@@ -1,9 +1,27 @@
 <?php
-include_once 'head.php';
 include_once 'database/bd.php';
 include_once 'database/bd_funcs.php';
 ?>
-
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dagon</title>
+    <link rel="icon" type="image/x-icon" href="img/pageicon.png">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src='js/jquery.js'></script>
+    <script src='js/clicker.js'></script>
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+</head>
 <body>
     <nav id='nav1' class="navbar navbar-expand-lg py-4 shadow">
 		<div class="container-fluid">
@@ -47,22 +65,16 @@ include_once 'database/bd_funcs.php';
 		</div>
     </nav>
     <div class=''>
-        <div style='float: left; margin-left: 50px; margin-top: 40px;'>
-            <a class='fishbtn gamefont  fs-1' name='fisherman' id='brand_logo' href="workers/fisherman_form.php"><?php $fish_val=count(all_fishermans_bd($conn,$_SESSION['usuario_pk']));
+        <div style='float: left; margin-left: 40px; margin-top: 40px;'>
+            <a class='fishbtn gamefont  fs-1' name='fisherman' id='brand_logo' href="workers/fishermans.php"><?php $fish_val=count(all_fishermans_bd($conn,$_SESSION['usuario_pk']));
             echo "{$fish_val}";?> <img src="img/fisherman.png" alt="" width='200px' height="200px"></a>
             <br>
-            <a class='fishbtn gamefont  fs-1' name='boat' id='brand_logo' href="workers/boat_form.php"><?php $boat_val=count(all_boat_bd($conn,$_SESSION['usuario_pk']));
+            <a class='fishbtn gamefont  fs-1' name='boat' id='brand_logo' href="workers/boats.php"><?php $boat_val=count(all_boat_bd($conn,$_SESSION['usuario_pk']));
             echo "{$boat_val}";?> <img src="img/fishing-boat.png" alt="" width='200px' height="200px"></a>
         </div>
-        <div class='' style='float: right; margin-top: 90px; block;z-index: 5;position: relative;'>
-            <a class='fishbtn gamefont fs-1' id='brand_logo' href="#">10 <img src="img/fish1.png" alt="" width='70px' height="70px"></a>
-            <p style='margin-bottom: 40px'></p>
-            <a class='fishbtn gamefont fs-1' id='brand_logo' href="#">523 <img src="img/fish2.png" alt="" width='70px' height="70px"></a>
-            <p style='margin-bottom: 40px'></p>
-            <a class='fishbtn gamefont fs-1' id='brand_logo' href="#">10 <img src="img/fish3.png" alt="" width='200px' height="100px"></a>
-        </div>
-        <div align='center' style='margin-top: 50px;font-size: 60px;'>
-            <h1 class="gamefont" name='money'><?php $home_coins = search_user_bd($_SESSION['username'],$conn)['coins'];echo "{$home_coins}";?></h1>
+        <div align='center' style='margin-top: 50px;'>
+            <p class='text-center gamefont fs-4' name='val_per_second'></p>
+            <h1 class="text-center gamefont" name='money'><?php $home_coins = search_user_bd($_SESSION['username'],$conn)['coins'];echo "{$home_coins}";?></h1>
             <a class='fishbtn' onclick='money_click()' id='brand_logo' href="#"><img src="img/money.png" alt="" width='200px' height="200px"></a>
         </div>
     </div>
@@ -75,10 +87,10 @@ include_once 'database/bd_funcs.php';
     <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
     </defs>
     <g class="parallax">
-    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(198, 210, 237,0.5)" />
-    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(198, 210, 237,0.3)" />
-    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(198, 210, 237,0.1)" />
-    <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(198, 210, 237,0.5)" />
+    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(168, 218, 220,0.5)" />
+    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(168, 218, 220,0.3)" />
+    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(168, 218, 220,0.1)" />
+    <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(168, 218, 220,0.5)" />
     </g>
     </svg>
     </div>
@@ -88,14 +100,13 @@ include_once 'database/bd_funcs.php';
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <h6>About</h6>
-                    <p class="text-justify">This is a website for a journaling REST API, created for learning purposes,
-                        website and api made with: Python 3,Django,Django Rest Framework</p>
+                    <p class="text-justify">Welcome to Cult of Dagon, the ultimate fish-themed idle game!</p>
                 </div>
 
                 <div class="col-xs-6 col-md-3">
                     <h6>Categories</h6>
                     <ul class="footer-links">
-                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="#">Home</a></li>
                     </ul>
                 </div>
 
@@ -112,8 +123,7 @@ include_once 'database/bd_funcs.php';
             <div class="row">
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by
-                        <a href="#">SOLURIES</a>.
-                        <?php echo "<p id='user_pk' style='display: none;'>{$_SESSION['usuario_pk']}</p>"?>
+                        <a href="#">Dagon</a>.
                     </p>
                 </div>
             </div>

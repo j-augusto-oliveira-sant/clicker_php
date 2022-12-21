@@ -82,14 +82,13 @@ include_once '../database/bd_funcs.php';
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <h6>About</h6>
-                    <p class="text-justify">This is a website for a journaling REST API, created for learning purposes,
-                        website and api made with: Python 3,Django,Django Rest Framework</p>
+                    <p class="text-justify">Welcome to Cult of Dagon, the ultimate fish-themed idle game!</p>
                 </div>
 
                 <div class="col-xs-6 col-md-3">
                     <h6>Categories</h6>
                     <ul class="footer-links">
-                        <li><a href="../home.php">Home</a></li>
+                        <li><a href="#">Home</a></li>
                     </ul>
                 </div>
 
@@ -106,7 +105,7 @@ include_once '../database/bd_funcs.php';
             <div class="row">
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by
-                        <a href="#">SOLURIES</a>.
+                        <a href="#">Dagon</a>.
                     </p>
                 </div>
             </div>
